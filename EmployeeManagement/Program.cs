@@ -1,6 +1,7 @@
-using EmployeeManagement.Data;
-using EmployeeManagement.Models;
-using EmployeeManagement.Repository;
+using EmployeeManagement.BusinessLogic.Repository.Contracts;
+using EmployeeManagement.BusinessLogic.Repository.Implementation;
+using EmployeeManagement.DataAccess.Data;
+using EmployeeManagement.Models.Models.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

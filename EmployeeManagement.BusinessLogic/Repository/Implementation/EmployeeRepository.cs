@@ -1,6 +1,7 @@
-﻿using EmployeeManagement.Caching;
-using EmployeeManagement.Data;
-using EmployeeManagement.Models;
+﻿using EmployeeManagement.BusinessLogic.Repository.Contracts;
+using EmployeeManagement.Caching;
+using EmployeeManagement.DataAccess.Data;
+using EmployeeManagement.Models.Models;
 using LazyCache;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +10,7 @@ using System.Linq.Dynamic.Core;
 using System.Reflection;
 using System.Text;
 
-namespace EmployeeManagement.Repository
+namespace EmployeeManagement.BusinessLogic.Repository.Implementation
 {
     public class EmployeeRepository : IEmployeeRepository
     {
@@ -93,7 +94,7 @@ namespace EmployeeManagement.Repository
             return pagedEmployeeData;
         }
 
-        public async Task<List<Employee>> GetAllEmployeesAsync()  
+        public async Task<List<Employee>> GetAllEmployeesAsync()
         {
             if (!_cacheProvider.TryGetValue(CacheKey.Employee, out List<Employee> employees))
             {
@@ -127,7 +128,7 @@ namespace EmployeeManagement.Repository
             return employee;
         }
 
-        public async Task<bool> EmployeeExistsAsync(int id) 
+        public async Task<bool> EmployeeExistsAsync(int id)
         {
             return await _context.Employees.AnyAsync(x => x.Id == id);
         }

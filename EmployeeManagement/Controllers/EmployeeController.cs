@@ -1,5 +1,5 @@
-﻿using EmployeeManagement.Models;
-using EmployeeManagement.Repository;
+﻿using EmployeeManagement.BusinessLogic.Repository.Contracts;
+using EmployeeManagement.Models.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;

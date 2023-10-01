@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
 
-namespace EmployeeManagement.Models
+namespace EmployeeManagement.Models.Models
 {
     public class Employee
     {
@@ -18,7 +17,7 @@ namespace EmployeeManagement.Models
         [Required, StringLength(50)]
         public string Location { get; set; }
 
-        [Required,StringLength(50)]
+        [Required, StringLength(50)]
         [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Your Email is not valid.")]
         public string Email { get; set; }
 
@@ -44,7 +43,7 @@ namespace EmployeeManagement.Models
         public DateTime UpdatedDate { get; set; }
     }
 
-    public enum Gender 
+    public enum Gender
     {
         Male,
         Female

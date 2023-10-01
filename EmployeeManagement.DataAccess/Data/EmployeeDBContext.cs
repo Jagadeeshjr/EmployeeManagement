@@ -1,15 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using EmployeeManagement.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using EmployeeManagement.Models.Models;
+using EmployeeManagement.Models.Models.Authentication;
 
-namespace EmployeeManagement.Data
+namespace EmployeeManagement.DataAccess.Data
 {
     public class EmployeeDBContext : IdentityDbContext<ApplicationUser>
     {
         public EmployeeDBContext(DbContextOptions<EmployeeDBContext> options)
-            :base(options)
+            : base(options)
         {
-                
+
         }
         public DbSet<Employee> Employees { get; set; }
     }

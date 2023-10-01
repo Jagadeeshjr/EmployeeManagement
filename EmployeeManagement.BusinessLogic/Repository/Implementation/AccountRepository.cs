@@ -1,11 +1,13 @@
-﻿using EmployeeManagement.Models;
+﻿using EmployeeManagement.BusinessLogic.Repository.Contracts;
+using EmployeeManagement.Models.Models.Authentication;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace EmployeeManagement.Repository
+namespace EmployeeManagement.BusinessLogic.Repository.Implementation
 {
     public class AccountRepository : IAccountRepository
     {
@@ -35,7 +37,7 @@ namespace EmployeeManagement.Repository
             return await _userManager.CreateAsync(user, signUpModel.Password);
         }
 
-        public async Task<string> LoginAsync(SignInModel signInModel)
+        public async Task<string?> LoginAsync(SignInModel signInModel)
         {
             var result = await _signInManager.PasswordSignInAsync(
                 signInModel.Email, signInModel.Password, false, false);
@@ -48,7 +50,7 @@ namespace EmployeeManagement.Repository
             var authClaims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, signInModel.Email),
-                new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 
             var authSigninKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_configuration["JwT:Secret"]));

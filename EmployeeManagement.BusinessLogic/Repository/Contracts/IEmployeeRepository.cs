@@ -1,7 +1,7 @@
-﻿using EmployeeManagement.Models;
+﻿using EmployeeManagement.Models.Models;
 using Microsoft.AspNetCore.JsonPatch;
 
-namespace EmployeeManagement.Repository
+namespace EmployeeManagement.BusinessLogic.Repository.Contracts
 {
     public interface IEmployeeRepository
     {

@@ -1,5 +1,6 @@
-﻿using EmployeeManagement.Models;
-using EmployeeManagement.Repository;
+﻿using EmployeeManagement.BusinessLogic.Repository.Contracts;
+using EmployeeManagement.Models;
+using EmployeeManagement.Models.Models.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.Controllers

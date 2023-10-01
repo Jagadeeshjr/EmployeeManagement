@@ -1,7 +1,7 @@
-﻿using EmployeeManagement.Models;
+﻿using EmployeeManagement.Models.Models.Authentication;
 using Microsoft.AspNetCore.Identity;
 
-namespace EmployeeManagement.Repository
+namespace EmployeeManagement.BusinessLogic.Repository.Contracts
 {
     public interface IAccountRepository
     {
